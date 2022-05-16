@@ -3,7 +3,7 @@
 
 using namespace std;
 
-aluno::aluno (string n, string mat)
+Aluno::Aluno (string n, string mat)
 {
     nome = n;
     matricula = mat;
@@ -12,12 +12,12 @@ aluno::aluno (string n, string mat)
     for(int i = 0; i < 7; i++)
     notas[i] = 0;
 }
-    aluno::~aluno()
+    Aluno::~Aluno()
 {
     cout<< "destruindo aluno"<< endl;
 }
 
-void aluno::lenotas()
+void Aluno::lenotas()
 {
     int i;
     for(i = 0; i < 7; i++)

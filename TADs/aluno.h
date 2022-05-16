@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class aluno
+class Aluno
 {
 private:
     int idade;
@@ -13,8 +13,8 @@ private:
     double notas[7];
 public:
 
-    aluno(string n, string mat);
-    ~aluno();
+    Aluno(string n, string mat);
+    ~Aluno();
 
     void lenotas();
     double calculaMedia();
