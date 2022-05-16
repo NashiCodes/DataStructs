@@ -22,7 +22,7 @@ void Aluno::lenotas()
     int i;
     for(i = 0; i < 7; i++)
     {
-        cout<<"digite as notas"<< i+1 <<";";
+        cout<<"digite as notas "<< i+1 <<":";
         cin>>notas[i];
     }
 }
