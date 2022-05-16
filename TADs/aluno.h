@@ -9,7 +9,7 @@ class aluno
 {
 private:
     int idade;
-    string name, matricula;
+    string nome, matricula;
     double notas[7];
 public:
 
