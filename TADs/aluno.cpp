@@ -26,3 +26,8 @@ void Aluno::lenotas()
         cin>>notas[i];
     }
 }
+
+double Aluno::calculaMedia()
+{
+    
+}
