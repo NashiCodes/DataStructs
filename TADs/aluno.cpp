@@ -12,7 +12,7 @@ Aluno::Aluno (string n, string mat)
     for(int i = 0; i < 7; i++)
     notas[i] = 0;
 }
-    Aluno::~Aluno()
+Aluno::~Aluno()
 {
     cout<< "destruindo aluno"<< endl;
 }
