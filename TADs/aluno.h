@@ -1,7 +1,7 @@
 #ifndef ALUNO_H
 #define ALUNO_H
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ private:
     double notas[7];
 public:
 
-    Aluno(string n, string mat);
+    Aluno(string n, int i, string mat);
     ~Aluno();
 
     void lenotas();

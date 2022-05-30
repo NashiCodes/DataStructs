@@ -1,13 +1,14 @@
 #include <iostream>
+#include <string.h>
 #include "aluno.h"
 
 using namespace std;
 
-Aluno::Aluno (string n, string mat)
+Aluno::Aluno (string n, int i, string mat)
 {
     nome = n;
     matricula = mat;
-    idade = 18;
+    idade = i;
 
     for(int i = 0; i < 7; i++)
     notas[i] = 0;
@@ -29,5 +30,5 @@ void Aluno::lenotas()
 
 double Aluno::calculaMedia()
 {
-    
+    return 0;
 }
