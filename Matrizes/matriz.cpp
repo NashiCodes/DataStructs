@@ -43,7 +43,7 @@ void Matriz::set(int i, int j, float val)
     }
 }
 
-void Matriz::get(int i, int j)
+double Matriz::get(int i, int j)
 {
     if (verifica(i, j))
         return matriz[i][j];
