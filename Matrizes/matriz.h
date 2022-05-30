@@ -6,18 +6,15 @@ using namespace std;
 class Matriz
 {
 private:
-    {
-        int Lin;
-        int Col;
-        bool verifica();
-    }
+        int Linhas;
+        int Colunas;
+        float **matriz;
+        bool verifica(int nl, int nc);
 
 public:
-    {
-        Matriz(int Lin; int Col);
+        Matriz(int nl, int nc);
         ~Matriz();
         void set();
         double get();
-    }
-}
+};
 #endif

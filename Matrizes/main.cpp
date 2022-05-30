@@ -5,6 +5,6 @@ using namespace std;
 
 int main()
 {
-    /* code */
+    Matriz mat(5,5);
     return 0;
 }
