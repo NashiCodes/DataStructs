@@ -11,13 +11,15 @@ private:
     int idade;
     string nome, matricula;
     double notas[7];
-public:
+    void lenotas();
+    void calculaMedia();
 
+public:
     Aluno(string n, int i, string mat);
     ~Aluno();
 
-    void lenotas();
-    double calculaMedia();
+    void imprimenotas();
+    void alunonotas();
 };
 
 #endif

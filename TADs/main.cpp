@@ -8,7 +8,7 @@ int main()
 {
     Aluno a("Joao", 18, "462583C4");
 
-    a.lenotas();
+    a.alunonotas();
 
     return 0;
 }
