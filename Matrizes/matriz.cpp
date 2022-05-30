@@ -21,13 +21,35 @@ Matriz::~Matriz()
         delete[] matriz[i];
     delete[] matriz;
 
-    cout<< "destruindo Matriz"<< endl;
+    cout << "destruindo Matriz" << endl;
 }
 
-bool Matriz::verifica(int nl, int nc)
+bool Matriz::verifica(int i, int j)
 {
-    if (nl >= 0 && nl < Linhas && nc >= 0 && nc < Colunas)
+    if (i >= 0 && i < Linhas && j >= 0 && j < Colunas)
         return true;
     else
         return false;
+}
+
+void Matriz::set(int i, int j, float val)
+{
+    if (verifica(i, j))
+        matriz[i][j] = val;
+    else
+    {
+        cout << "Erro: indice inválido" << endl;
+        exit(1);
+    }
+}
+
+void Matriz::get(int i, int j)
+{
+    if (verifica(i, j))
+        return matriz[i][j];
+    else
+    {
+        cout << "Erro: indice inválido" << endl;
+        exit(1);
+    }
 }
