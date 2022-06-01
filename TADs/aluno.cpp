@@ -15,7 +15,7 @@ Aluno::Aluno(string n, int i, string mat)
 }
 Aluno::~Aluno()
 {
-    cout << "destruindo aluno" << endl;
+    cout << "Desalocando Dados" << endl;
 }
 void Aluno::alunonotas()
 {
