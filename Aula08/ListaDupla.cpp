@@ -116,3 +116,21 @@ void ListaDupla::removeInicio()
     else
         cout << "ERRO: lista vazia" << endl;
 }
+
+void ListaDupla::removeFinal()
+{
+    if (primeiro != NULL)
+    {
+        NoDuplo *p = ultimo;
+
+        ultimo = ultimo->getAnt();
+
+        if (primeiro == ultimo)
+            primeiro = NULL;
+        else
+            ultimo->setProx(NULL);
+
+        delete p;
+        n = n - 1;
+    }
+}
