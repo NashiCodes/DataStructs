@@ -136,5 +136,9 @@ void ListaDupla::removeFinal()
 }
 void ListaDupla::imprime()
 {
-    cout<<get(0);
+
+    for (NoDuplo *p = primeiro; p != NULL; p = p->getProx())
+    {
+        cout << p->getInfo();
+    }
 }
