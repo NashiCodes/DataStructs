@@ -134,3 +134,7 @@ void ListaDupla::removeFinal()
         n = n - 1;
     }
 }
+void ListaDupla::imprime()
+{
+    cout<<get(0);
+}
