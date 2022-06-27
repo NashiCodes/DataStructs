@@ -141,4 +141,13 @@ void ListaDupla::imprime()
     {
         cout << p->getInfo();
     }
+    cout<<endl;
+}
+void ListaDupla::imprimeFinal()
+{
+    for (NoDuplo *p = ultimo; p != NULL; p=p->getAnt())
+    {
+        cout<< p->getInfo();
+    }
+    cout<<endl;
 }
