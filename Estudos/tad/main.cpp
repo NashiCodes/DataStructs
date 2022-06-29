@@ -4,12 +4,9 @@
 
 using namespace std;
 
-
-
 int main()
 {
-    Pessoa i;
-    i.nome = "fulano";
-
+    Pessoa a("Joao", 19);
+    a.imprimeP();
     return 0;
 }

@@ -6,10 +6,11 @@ using namespace std;
 class Pessoa
 {
 public:
-    Pessoa(string Nome, int idade);
-    ~pessoa();
-    
+    Pessoa(string n, int i);
+    ~Pessoa();
+    void imprimeP();
+
 private:
-    string nome;
-    int idade;
+    string Nome;
+    int Idade;
 };
