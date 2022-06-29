@@ -1,5 +1,3 @@
-#ifndef LISTADUPLA_H_INCLUDED
-#define LISTADUPLA_H_INCLUDED
 #include "NoDuplo.h"
 
 class ListaDupla
@@ -21,4 +19,3 @@ private:
     NoDuplo *ultimo;
     int n;
 };
-#endif
