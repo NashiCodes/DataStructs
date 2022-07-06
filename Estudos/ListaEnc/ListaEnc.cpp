@@ -43,20 +43,20 @@ bool ListaEnc::busca(int val)
 
 int ListaEnc::get(int k)
 {
-    No *p;
+    No *p; // cria um No Aux
 
-    for (int i = 0; i < k && p != NULL; i++)
-    {
-        p = p->getprox();
-    }
+    for (int i = 0; i < k && p != NULL; i++) // Percorrendo a lista
+    {                                        // até o indice k
+        p = p->getprox();                    //
+    }                                        //
 
-    if (p == NULL)
-    {
-        cout << "ERRO: Indice invalido!!" << endl;
-        exit(1);
-    }
+    if (p == NULL)                                 // Verifica se o indice K é valido
+    {                                              //
+        cout << "ERRO: Indice invalido!!" << endl; //
+        exit(1);                                   // Acaba o programa se o indice for invalido
+    }                                              //
     else
-        return p->getinfo();
+        return p->getinfo(); // Retorna o Valor dentro do indice K
 }
 
 void ListaEnc::insereInicio(int val)
