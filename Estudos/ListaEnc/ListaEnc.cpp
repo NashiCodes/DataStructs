@@ -86,20 +86,25 @@ void ListaEnc::insereInicio(int val)
 
     primeiro = p; // Nó apontado por p passa a ser o primeiro da lista
 
-    n++;
-    if (n == 1)
-        ultimo = p;
+    n++;            // Aumenta o numero de nós
+    if (n == 1)     // Verifica se é o primeiro nó
+        ultimo = p; // Ultimo recebe p
 }
 
 void ListaEnc::inserefinal(int val)
 {
-    for (No *p = primeiro; p < NULL; p = p->getprox())
-    {
-        if (p->getprox() == NULL)
-        {
-            No *final;
-        }
-    }
+    No *p = new No(); // Cria um novo Nó para a lista
+    p->setinfo(val);  // Insere a informação
+    p->setprox(NULL); // Preenche o proximo como NULO
+
+    if (ultimo != NULL)     // Verifica se o Ultimo não é Nulo
+        ultimo->setprox(p); // Se não for o ultimo aponta para p
+    else                    // Caso contrario
+        ultimo = p;         // Ultimo recebe p
+
+    n++;              // Aumenta o numero de nós
+    if (n == 1)       // Verifica se é o primeiro nó
+        primeiro = p; // Primeiro recebe p
 }
 
 void ListaEnc::removeinicio()
