@@ -59,6 +59,24 @@ int ListaEnc::get(int k)
         return p->getinfo(); // Retorna o Valor dentro do indice K
 }
 
+void ListaEnc::set(int k, int val)
+{
+    No *p; // No Aux
+
+    for (int i = 0; i < k && p != NULL; i++) // Percorre a lista
+    {                                        // até o indice K
+        p = p->getprox();                    //
+    }                                        //
+
+    if (p == NULL)                                 // Verifica se o indice K é valido
+    {                                              //
+        cout << "ERRO: Indice invalido!!" << endl; //
+        exit(2);                                   // Acaba o programa se o indice for invalido
+    }                                              //
+    else
+        p->setinfo(val);
+}
+
 void ListaEnc::insereInicio(int val)
 {
     No *p = new No(); // Cria um novo Nó para a lista
