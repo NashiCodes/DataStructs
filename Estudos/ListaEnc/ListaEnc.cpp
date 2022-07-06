@@ -79,8 +79,7 @@ void ListaEnc::set(int k, int val)
 
 void ListaEnc::insereInicio(int val)
 {
-    No *p = new No(); // Cria um novo Nó para a lista
-
+    No *p = new No();     // Cria um novo Nó para a lista
     p->setinfo(val);      // Inserindo a informação no Nó
     p->setprox(primeiro); // Preenche proximo
 
@@ -113,11 +112,40 @@ void ListaEnc::removeinicio()
 
     if (primeiro != NULL)
     {
-        p = primeiro; // p aponta para o nó a ser excluido
-
+        p = primeiro;            // p aponta para o nó a ser excluido
         primeiro = p->getprox(); // Primeiro passa a aponta para o atual Segundo
-
         delete p;
+
+        n--;
+        if (n == 0)
+            ultimo = NULL;
+    }
+    else
+        cout << "ERRO: Lista Vazia!!";
+}
+
+void ListaEnc::removefinal()
+{
+    No *p;
+
+    if (ultimo != NULL) // Verifica se o ultimo não é nulo
+    {
+        if (primeiro == ultimo) // Verifica se o primeiro é igual ao ultimo
+        {
+            primeiro = NULL; // Primeiro e o p recebe NULLO
+            p = NULL;        //
+        }
+        else // Caso contrário
+        {
+            p = primeiro;
+            while (p->getprox() != ultimo) // Percorre a lista até o penultimo
+                p = p->getprox();          //
+
+            p->setprox(NULL); // Penultimo recebe Nulo
+        }
+        delete ultimo; // Deleta o ultimo
+        ultimo = p;    // Penultimo se torna o Ultimo
+        n--;
     }
 }
 

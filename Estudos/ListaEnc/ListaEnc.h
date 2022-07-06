@@ -15,6 +15,6 @@ public:
     void imprime();             // Imprime a lista
     void insereInicio(int val); // Insere o valor no inicio
     void inserefinal(int Val);  // Insere o valor no final da lista
-
-    void removeinicio(); // Remove o primeiro nó da lista
+    void removeinicio();        // Remove o primeiro nó da lista
+    void removefinal();         // Remove o ultimo nó da lista
 };
