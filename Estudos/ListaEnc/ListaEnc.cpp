@@ -1,15 +1,21 @@
 #include <iostream>
+#include <cstdlib>
 #include "ListaEnc.h"
 
 using namespace std;
 
 ListaEnc::ListaEnc()
 {
+    // Lista é iniciada
+    cout << "Criando lista..." << endl;
     primeiro = NULL;
+    ultimo = NULL;
+    n = 0;
 }
 
 ListaEnc::~ListaEnc()
 {
+    cout << "Destruindo a Lista..." << endl;
     No *p = primeiro;
 
     while (p != NULL)
@@ -20,6 +26,22 @@ ListaEnc::~ListaEnc()
         p = t; // Andando na Lista
     }
 }
+
+bool ListaEnc::busca(int val)
+{
+    No *p; // Cria um Nó Aux
+
+    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+    {
+        if (p->getinfo() == val) // Verifica se há o valor
+        {
+            return true; // Verdadeiro se houver
+        }
+    }
+    return false; // Falso caso contrário
+}
+
+
 
 void ListaEnc::insereInicio(int val)
 {
@@ -41,19 +63,18 @@ void ListaEnc::insereInicio(int val)
     primeiro = p; // Nó apontado por p passa a ser o primeiro da lista
 }
 
-bool ListaEnc::busca(int val)
+void ListaEnc::inserefinal(int val)
 {
-    No *p; // Cria um Nó Aux
-
-    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+    for (No *p = primeiro; p < NULL; p = p->getprox())
     {
-        if (p->getinfo() == val) // Verifica se há o valor
+        if (p->getprox() == NULL)
         {
-            return true; // Verdadeiro se houver
+            No *final;
         }
     }
-    return false; // Falso caso contrário
 }
+
+
 
 void ListaEnc::removeinicio()
 {
