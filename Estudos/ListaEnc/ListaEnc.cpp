@@ -29,7 +29,7 @@ void ListaEnc::insereInicio(int val)
     nó de forma dinâmica, isto é, este novo nó só ́é criado
     quando a operação ̃insereInicio(val) e executada.*/
 
-    /*Portanto, novos nós são adicionados à lista em tempo de execução 
+    /*Portanto, novos nós são adicionados à lista em tempo de execução
     de acordo com a demanda da aplicação.*/
 
     /*Logo, em um instante de tempo, a memoria ocupada pela
@@ -39,4 +39,18 @@ void ListaEnc::insereInicio(int val)
     p->setprox(primeiro); // Preenche proximo
 
     primeiro = p; // Nó apontado por p passa a ser o primeiro da lista
+}
+
+bool ListaEnc::busca(int val)
+{
+    No *p; // Cria um ponteiro Aux
+
+    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+    {
+        if (p->getinfo() == val) // Verifica se há o valor
+        {
+            return true; // Verdadeiro se houver
+        }
+    }
+    return false; // Falso caso contrário
 }
