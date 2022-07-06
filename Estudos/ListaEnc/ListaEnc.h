@@ -2,11 +2,11 @@
 class ListaEnc
 {
 private:
-    No* primeiro;
+    No *primeiro; // Toda lista tem seu Nó
 public:
-    ListaEnc();
-    ~ListaEnc();
+    ListaEnc();  // Construtor
+    ~ListaEnc(); // Destrutor
 
-    void insereInicio(int val);
-    bool busca(int val);
+    void insereInicio(int val); // Insere o valor no Inicio
+    bool busca(int val);        // Busca o Valor
 };
