@@ -60,6 +60,7 @@ void ListaEnc::imprime()
     No *p; // Cria um Nó Aux
 
     cout << "A lista contem os valores:" << endl;
+    cout << endl;
 
     for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
     {
