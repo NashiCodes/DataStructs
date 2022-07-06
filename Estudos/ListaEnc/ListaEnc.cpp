@@ -41,7 +41,23 @@ bool ListaEnc::busca(int val)
     return false; // Falso caso contrário
 }
 
+int ListaEnc::get(int k)
+{
+    No *p;
 
+    for (int i = 0; i < k && p != NULL; i++)
+    {
+        p = p->getprox();
+    }
+
+    if (p == NULL)
+    {
+        cout << "ERRO: Indice invalido!!" << endl;
+        exit(1);
+    }
+    else
+        return p->getinfo();
+}
 
 void ListaEnc::insereInicio(int val)
 {
@@ -73,8 +89,6 @@ void ListaEnc::inserefinal(int val)
         }
     }
 }
-
-
 
 void ListaEnc::removeinicio()
 {
