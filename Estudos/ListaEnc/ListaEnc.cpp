@@ -55,6 +55,20 @@ bool ListaEnc::busca(int val)
     return false; // Falso caso contrário
 }
 
+void ListaEnc::removeinicio()
+{
+    No *p;
+
+    if (primeiro != NULL)
+    {
+        p = primeiro; // p aponta para o nó a ser excluido
+
+        primeiro = p->getprox(); // Primeiro passa a aponta para o atual Segundo
+
+        delete p;
+    }
+}
+
 void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux

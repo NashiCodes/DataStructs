@@ -10,4 +10,5 @@ public:
     void insereInicio(int val); // Insere o valor no inicio
     bool busca(int val);        // Busca o valor
     void imprime();             // Imprime a lista
+    void removeinicio();        // Remove o primeiro nó da lista
 };
