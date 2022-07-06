@@ -28,5 +28,7 @@ int main()
         l.insereInicio(val);         // Insere o valor na Lista
     }
 
+    l.imprime();
+    
     return 0;
 }
