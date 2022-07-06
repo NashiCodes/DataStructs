@@ -7,6 +7,7 @@ public:
     ListaEnc();  // Construtor
     ~ListaEnc(); // Destrutor
 
-    void insereInicio(int val); // Insere o valor no Inicio
-    bool busca(int val);        // Busca o Valor
+    void insereInicio(int val); // Insere o valor no inicio
+    bool busca(int val);        // Busca o valor
+    void imprime();             // Imprime a lista
 };

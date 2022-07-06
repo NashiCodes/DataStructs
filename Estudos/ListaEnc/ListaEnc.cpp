@@ -43,7 +43,7 @@ void ListaEnc::insereInicio(int val)
 
 bool ListaEnc::busca(int val)
 {
-    No *p; // Cria um ponteiro Aux
+    No *p; // Cria um Nó Aux
 
     for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
     {
@@ -53,4 +53,18 @@ bool ListaEnc::busca(int val)
         }
     }
     return false; // Falso caso contrário
+}
+
+void ListaEnc::imprime()
+{
+    No *p; // Cria um Nó Aux
+
+    cout << "A lista contem os valores:" << endl;
+
+    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+    {
+        cout << p->getinfo() << " "; // Imprime os valores da lista
+    }
+
+    cout << endl;
 }
