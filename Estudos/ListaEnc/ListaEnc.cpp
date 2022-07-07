@@ -177,6 +177,10 @@ void ListaEnc::removefinal()
     }
 }
 
+void ListaEnc::removeK(int k)
+{
+}
+
 void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux

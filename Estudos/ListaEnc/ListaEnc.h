@@ -18,4 +18,5 @@ public:
     void insereK(int k, int val); // cria um novo nó e insere o valor na posição
     void removeinicio();          // Remove o primeiro nó da lista
     void removefinal();           // Remove o ultimo nó da lista
+    void removeK(int k);          // Remove o nó "k" da lista
 };
