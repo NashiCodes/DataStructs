@@ -19,10 +19,10 @@ public:
     void removeinicio();          // Remove o primeiro nó da lista
     void removefinal();           // Remove o ultimo nó da lista
     void removeK(int k);          // Remove o nó "k" da lista
-    int numNos();
-    int buscaMaior(int val);
-    void limpar();
-    float calculaMedia();
-    void concatena(ListaEnc *l2);
-    ListaEnc* partir(int x);
+    int numNos();                 // Retorna o numero de Nós
+    int buscaMaior(int val);      // retorna um valor maior q o valor de referencia
+    void limpar();                // Limpa a Lista
+    float calculaMedia();         // Calcula a media de valores na lista
+    void concatena(ListaEnc *l2); // Concatena duas listas
+    ListaEnc *partir(int x);
 };
