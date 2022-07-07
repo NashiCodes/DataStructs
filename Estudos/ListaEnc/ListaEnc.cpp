@@ -108,9 +108,10 @@ void ListaEnc::inserefinal(int val)
 
 void ListaEnc::insereK(int k, int val)
 {
-    No *p = new No(); // Cria um novo Nó pra lista
-    p->setinfo(val);  // Insere a informação
-    int i = 0;        // Variavel Aux
+    No *p;             // Nó Aux
+    No *nn = new No(); // Cria um novo Nó pra lista
+    nn->setinfo(val);  // Insere a informação
+    int i = 0;         // Variavel Aux
 
     if (n == 0)
     {
@@ -121,14 +122,16 @@ void ListaEnc::insereK(int k, int val)
     {
         for (p = primeiro; p != NULL && i < k; p = p->getprox())
         {
-            if (i == k-1)
+            if (i == k - 1)
             {
-                p=p->getprox();
+                nn->setprox(p->getprox());
+                p->setprox(nn);
             }
-            else
-                i++;
+
+            i++;
         }
     }
+    n++;
 }
 
 void ListaEnc::removeinicio()
@@ -178,9 +181,8 @@ void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux
 
-    cout << "A lista contem os valores:" << endl;
     cout << endl;
-
+    cout << "A lista contem os valores:" << endl;
     for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
     {
         cout << p->getinfo() << " "; // Imprime os valores da lista
