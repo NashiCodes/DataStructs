@@ -30,6 +30,18 @@ int main()
     }
 
     l.imprime();
+    l.insereInicio(2022);
+    l.imprime();
+    l.inserefinal(2022);
+    l.imprime();
+    l.insereK(5, 2022);
+    l.imprime();
+    l.removeinicio();
+    l.imprime();
+    l.removefinal();
+    l.imprime();
+    l.removeK(4);
+    l.imprime();
 
     return 0;
 }
