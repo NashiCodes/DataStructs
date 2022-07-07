@@ -99,8 +99,8 @@ void ListaEnc::inserefinal(int val)
 
     if (ultimo != NULL)     // Verifica se o Ultimo não é Nulo
         ultimo->setprox(p); // Se não for o ultimo aponta para p
-    else                    // Caso contrario
-        ultimo = p;         // Ultimo recebe p
+
+    ultimo = p; // Ultimo recebe p
 
     n++;              // Aumenta o numero de nós
     if (n == 1)       // Verifica se é o primeiro nó
@@ -240,6 +240,7 @@ void ListaEnc::limpar()
 {
     No *p = primeiro;
 
+    cout << "Limpando a Lista..." << endl;
     while (p != NULL)
     {
         No *t = p->getprox(); // Salvando o endereço do proximo nó
@@ -251,7 +252,6 @@ void ListaEnc::limpar()
     }
     primeiro = NULL;
     ultimo = NULL;
-    n--;
 }
 
 float ListaEnc::calculaMedia()
@@ -286,6 +286,10 @@ void ListaEnc::imprime()
         {
             cout << p->getinfo() << " "; // Imprime os valores da lista
         }
+
+        cout << endl;
+        cout << "Numeros de nos: " << numNos() << endl;
+        cout << "Media da Lista eh:" << calculaMedia() << endl;
     }
 
     cout << endl;
