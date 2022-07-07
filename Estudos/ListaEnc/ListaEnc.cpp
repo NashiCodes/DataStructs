@@ -106,6 +106,31 @@ void ListaEnc::inserefinal(int val)
         primeiro = p; // Primeiro recebe p
 }
 
+void ListaEnc::insereK(int k, int val)
+{
+    No *p = new No(); // Cria um novo Nó pra lista
+    p->setinfo(val);  // Insere a informação
+    int i = 0;        // Variavel Aux
+
+    if (n == 0)
+    {
+        cout << "ERRO:Lista Vazia!!" << endl;
+        insereInicio(val);
+    }
+    else
+    {
+        for (p = primeiro; p != NULL && i < k; p = p->getprox())
+        {
+            if (i == k-1)
+            {
+                p=p->getprox();
+            }
+            else
+                i++;
+        }
+    }
+}
+
 void ListaEnc::removeinicio()
 {
     No *p;
