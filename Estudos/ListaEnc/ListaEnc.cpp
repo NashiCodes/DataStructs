@@ -254,6 +254,22 @@ void ListaEnc::limpar()
     n--;
 }
 
+float ListaEnc::calculaMedia()
+{
+    No *p;
+    float soma = 0;
+    float media = 0;
+
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        soma = soma + p->getinfo();
+    }
+
+    media = soma / numNos();
+
+    return media;
+}
+
 void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux
