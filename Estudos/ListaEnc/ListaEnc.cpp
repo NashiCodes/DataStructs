@@ -179,6 +179,39 @@ void ListaEnc::removefinal()
 
 void ListaEnc::removeK(int k)
 {
+    No *p;
+    No *aux;
+    int i = 0;
+    aux = primeiro;
+
+    for (p = primeiro; p != NULL && i <= k; p = p->getprox())
+    {
+        if (k == 0)
+        {
+            removeinicio();
+            i++;
+        }
+
+        if (k == n)
+        {
+            removefinal();
+            i++;
+        }
+
+        if (i == (k - 1))
+        {
+            aux = aux->getprox();
+            p->setprox(aux->getprox());
+
+            delete aux;
+
+            n--;
+            i++;
+        }
+
+        i++;
+        aux = aux->getprox();
+    }
 }
 
 void ListaEnc::imprime()
