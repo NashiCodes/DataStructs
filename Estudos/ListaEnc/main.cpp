@@ -42,6 +42,8 @@ int main()
     l.imprime();
     l.removeK(4);
     l.imprime();
+    l.limpar();
+    l.imprime();
 
     return 0;
 }

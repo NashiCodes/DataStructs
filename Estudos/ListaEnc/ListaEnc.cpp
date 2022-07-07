@@ -15,6 +15,7 @@ ListaEnc::ListaEnc()
 
 ListaEnc::~ListaEnc()
 {
+    cout << endl;
     cout << "Destruindo a Lista..." << endl;
     No *p = primeiro;
 
@@ -237,29 +238,38 @@ int ListaEnc::buscaMaior(int val)
 
 void ListaEnc::limpar()
 {
-}
+    No *p = primeiro;
 
-float ListaEnc::calculaMedia()
-{
-}
+    while (p != NULL)
+    {
+        No *t = p->getprox(); // Salvando o endereço do proximo nó
+        delete p;             // Deletando o nó atual
 
-void ListaEnc::concatena(ListaEnc *l2)
-{
-}
+        p = t; // Andando na Lista
 
-ListaEnc *ListaEnc::partir(int x)
-{
+        n--;
+    }
+    primeiro = NULL;
+    ultimo = NULL;
+    n--;
 }
 
 void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux
-
-    cout << endl;
-    cout << "A lista contem os valores:" << endl;
-    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+    if (n == 0)
     {
-        cout << p->getinfo() << " "; // Imprime os valores da lista
+        cout << endl;
+        cout << "ERRO: Lista Vazia!!";
+    }
+    else
+    {
+        cout << endl;
+        cout << "A lista contem os valores:" << endl;
+        for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+        {
+            cout << p->getinfo() << " "; // Imprime os valores da lista
+        }
     }
 
     cout << endl;
