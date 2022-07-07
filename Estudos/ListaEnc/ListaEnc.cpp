@@ -214,6 +214,43 @@ void ListaEnc::removeK(int k)
     }
 }
 
+int ListaEnc::numNos()
+{
+    return n;
+}
+
+int ListaEnc::buscaMaior(int val)
+{
+    No *p;
+    int i = 0;
+
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        if (p->getinfo() > val)
+            return i;
+
+        i++;
+    }
+
+    return -1;
+}
+
+void ListaEnc::limpar()
+{
+}
+
+float ListaEnc::calculaMedia()
+{
+}
+
+void ListaEnc::concatena(ListaEnc *l2)
+{
+}
+
+ListaEnc *ListaEnc::partir(int x)
+{
+}
+
 void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux
