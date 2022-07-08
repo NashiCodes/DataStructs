@@ -269,7 +269,7 @@ void ListaEnc::concatena(ListaEnc *l2)
 {
     ultimo->setprox(l2->primeiro); //
     ultimo = l2->ultimo;           // AUto-explicativo
-    n = n + l2->n;                 //
+    n += l2->n;                    //
 }
 
 ListaEnc *ListaEnc::partir(int x)

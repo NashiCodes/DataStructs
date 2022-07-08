@@ -24,5 +24,5 @@ public:
     void limpar();                // Limpa a Lista
     float calculaMedia();         // Calcula a media de valores na lista
     void concatena(ListaEnc *l2); // Concatena duas listas
-    ListaEnc *partir(int x);
+    ListaEnc *partir(int x);      // Parte uma lista em 2 a partir do indice x
 };
