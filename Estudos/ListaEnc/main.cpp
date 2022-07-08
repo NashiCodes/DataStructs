@@ -26,7 +26,7 @@ int main()
 
     for (int i = 0; i < n; i++) // Percorre a lista
     {
-        val = numAleatorio(0, 100); // Gera um numero aleatorio entre 0 e 2022
+        val = numAleatorio(0, 100); // Gera um numero aleatorio entre 0 e 100
         l.insereInicio(val);        // Insere o valor na Lista
     }
 
@@ -36,7 +36,7 @@ int main()
 
     for (int i = 0; i < n; i++) // Percorre a lista
     {
-        val = numAleatorio(0, 100); // Gera um numero aleatorio entre 0 e 2022
+        val = numAleatorio(0, 100); // Gera um numero aleatorio entre 0 e 100
         l2.insereInicio(val);       // Insere o valor na Lista
     }
 
