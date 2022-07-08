@@ -270,6 +270,13 @@ float ListaEnc::calculaMedia()
     return media;
 }
 
+void ListaEnc::concatena(ListaEnc *l2)
+{
+    ultimo->setprox(l2->primeiro);
+
+    n = n + l2->n;
+}
+
 void ListaEnc::imprime()
 {
     No *p; // Cria um Nó Aux
