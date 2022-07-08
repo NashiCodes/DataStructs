@@ -180,38 +180,38 @@ void ListaEnc::removefinal()
 
 void ListaEnc::removeK(int k)
 {
-    No *p;
-    No *aux;
+    No *p;   // No para percorrer a lista
+    No *aux; // no auxiliar
     int i = 0;
     aux = primeiro;
 
-    for (p = primeiro; p != NULL && i <= k; p = p->getprox())
+    for (p = primeiro; p != NULL && i <= k; p = p->getprox()) // Percorre a Lista
     {
-        if (k == 0)
+        if (k == 0) // Verifica se o indice k eh o primeiro da lista
         {
             removeinicio();
             i++;
         }
 
-        if (k == n)
+        if (k == n) // Verifica se o indice k eh o ultimo da lista
         {
             removefinal();
             i++;
         }
 
-        if (i == (k - 1))
+        if (i == (k - 1)) // Para no anterior ao que vai excluir
         {
-            aux = aux->getprox();
-            p->setprox(aux->getprox());
+            aux = aux->getprox();       // auxiliar recebe o que ira ser deletado
+            p->setprox(aux->getprox()); // P aponta para o proximo do ira ser deletado
 
-            delete aux;
+            delete aux; // No na posicao K eh deletado
 
             n--;
             i++;
         }
 
         i++;
-        aux = aux->getprox();
+        aux = aux->getprox(); // percorre a lista em conjunto ao no P
     }
 }
 
@@ -222,18 +222,18 @@ int ListaEnc::numNos()
 
 int ListaEnc::buscaMaior(int val)
 {
-    No *p;
-    int i = 0;
+    No *p;     // No para percorrer a lista
+    int i = 0; // Inteiro Auxiliar
 
-    for (p = primeiro; p != NULL; p = p->getprox())
+    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a lista
     {
-        if (p->getinfo() > val)
-            return i;
+        if (p->getinfo() > val) // Verifica se a informacao no No eh maior que o val de referencia
+            return i;           // Caso for, Retorna a posicao desse valor maior
 
         i++;
     }
 
-    return -1;
+    return -1; // Caso contrario, retorna "-1"
 }
 
 void ListaEnc::limpar()
@@ -256,31 +256,26 @@ void ListaEnc::limpar()
 
 float ListaEnc::calculaMedia()
 {
-    No *p;
-    float soma = 0;
-    float media = 0;
+    No *p;          // No para percorrer a lista
+    float soma = 0; // Indice para guardar a soma
 
-    for (p = primeiro; p != NULL; p = p->getprox())
-    {
-        soma = soma + p->getinfo();
-    }
+    for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
+        soma += p->getinfo();                       // Soma os valores da Lista
 
-    media = soma / numNos();
-
-    return media;
+    return soma / numNos();
 }
 
 void ListaEnc::concatena(ListaEnc *l2)
 {
-    ultimo->setprox(l2->primeiro);
-
-    n = n + l2->n;
+    ultimo->setprox(l2->primeiro); //
+    ultimo = l2->ultimo;           // AUto-explicativo
+    n = n + l2->n;                 //
 }
 
 void ListaEnc::imprime()
 {
-    No *p; // Cria um Nó Aux
-    if (n == 0)
+    No *p;      // Cria um Nó Aux
+    if (n == 0) // Verifica se a Lista esta Vazia
     {
         cout << endl;
         cout << "ERRO: Lista Vazia!!";
