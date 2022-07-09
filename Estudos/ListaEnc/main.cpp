@@ -10,6 +10,23 @@ int numAleatorio(int a, int b)
     return a + rand() % (b - a + 1); // retorna um numero inteiro aleatório entre a e b
 }
 
+void ChamaLista(ListaEnc *lista)
+{
+    lista->imprime();
+    lista->insereInicio(2022);
+    lista->imprime();
+    lista->inserefinal(2022);
+    lista->imprime();
+    lista->insereK(5, 2022);
+    lista->imprime();
+    lista->removeinicio();
+    lista->imprime();
+    lista->removefinal();
+    lista->imprime();
+    lista->removeK(4);
+    lista->imprime();
+}
+
 int main()
 {
     srand(time(NULL));
@@ -40,33 +57,10 @@ int main()
         l2.insereInicio(val);       // Insere o valor na Lista
     }
 
-    l.imprime();
-    l.insereInicio(2022);
-    l.imprime();
-    l.inserefinal(2022);
-    l.imprime();
-    l.insereK(5, 2022);
-    l.imprime();
-    l.removeinicio();
-    l.imprime();
-    l.removefinal();
-    l.imprime();
-    l.removeK(4);
-    l.imprime();
+    ChamaLista(&l);
 
-    l2.insereInicio(2022);
-    l2.imprime();
-    l2.inserefinal(2022);
-    l2.imprime();
-    l2.insereK(5, 2022);
-    l2.imprime();
-    l2.removeinicio();
-    l2.imprime();
-    l2.removefinal();
-    l2.imprime();
-    l2.removeK(4);
-    l2.imprime();
-
+    ChamaLista(&l2);
+    
     l.concatena(&l2);
     l.imprime();
 
