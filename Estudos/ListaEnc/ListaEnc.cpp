@@ -275,19 +275,19 @@ void ListaEnc::concatena(ListaEnc *l2)
 ListaEnc *ListaEnc::partir(int x)
 {
     No *p;                               // No para percorrer a lista
-    ListaEnc listaDividida = ListaEnc(); // Nova Lista
+    ListaEnc *listaDiv = new ListaEnc(); // Nova Lista
     int i = 0;                           // Inteiro auxiliar
 
     for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
     {
         if (i == x)
         {
-            listaDividida.primeiro = p;
+            listaDiv->primeiro = p;
         }
     }
-    listaDividida.ultimo = p;
+    listaDiv->ultimo = p;
 
-    return &listaDividida;
+    return listaDiv;
 }
 
 void ListaEnc::imprime()
