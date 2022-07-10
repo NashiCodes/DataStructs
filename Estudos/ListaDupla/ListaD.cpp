@@ -59,3 +59,25 @@ void ListaD::insereFinal(int val)
     ultimo = p; // O novo Nó se torna o ultimo
     n++;
 }
+
+void ListaD::removeInicio()
+{
+    NoDuplo *p;
+
+    if (primeiro != NULL)
+    {
+        p = primeiro;
+        primeiro = p->getprox();
+        delete p;
+        n--;
+
+        if (n == 0)
+            ultimo = NULL;
+        else
+            primeiro->setant(NULL);
+    }
+    else
+    {
+        cout << "Lista Vazia" << endl;
+    }
+}
