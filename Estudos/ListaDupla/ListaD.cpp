@@ -35,11 +35,11 @@ void ListaD::insereInicio(int val)
     p->setprox(primeiro);       // Proximo de P recebe Primeiro
     p->setant(NULL);            // Anterior recebe nulo
 
-    if (n == 0)              // Se for o primeiro
-        ultimo = p;          // Ultimo recebe p
+    if (n == 0)              // Se a lista estiver vazia
+        ultimo = p;          // Ultimo será p
     else                     // Caso contrario
-        primeiro->setant(p); // Anterior de primeiro recebe p
+        primeiro->setant(p); // Anterior do primeiro atual será p
 
-    primeiro = p;
+    primeiro = p; // O novo Nó se torna o primeiro
     n++;
 }
