@@ -43,3 +43,19 @@ void ListaD::insereInicio(int val)
     primeiro = p; // O novo Nó se torna o primeiro
     n++;
 }
+
+void ListaD::insereFinal(int val)
+{
+    NoDuplo *p = new NoDuplo(); // Novo Nó é criado
+    p->setinfo(val);            // Informação é inserida
+    p->setprox(NULL);           // Proximo dele será nulo
+    p->setant(ultimo);          // Anterior dele será o ultimo atual da lista
+
+    if (n == 0)             // Se a lista estiver vazia
+        primeiro = p;       // O primeiro será p
+    else                    // Caso contrario
+        ultimo->setprox(p); // O proximo do ultimo atual será p
+
+    ultimo = p; // O novo Nó se torna o ultimo
+    n++;
+}
