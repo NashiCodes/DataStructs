@@ -103,3 +103,56 @@ void ListaD::removeFinal()
         cout << "ERRO: Lista Vazia..." << endl;
     }
 }
+
+bool ListaD::busca(int val)
+{
+    NoDuplo *p;
+
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        if (p->getinfo() == val)
+            return true;
+    }
+
+    return false;
+}
+
+void ListaD::imprime()
+{
+    NoDuplo *p;
+
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!!!" << endl;
+        return;
+    }
+    else
+    {
+        cout << "A lista contém os valores: " << endl;
+        for (p = primeiro; p != NULL; p = p->getprox())
+        {
+            cout << p->getinfo() << " ";
+        }
+    }
+    cout << endl;
+}
+
+void ListaD::imprimeReverso()
+{
+    NoDuplo *p;
+
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!!!" << endl;
+        return;
+    }
+    else
+    {
+        cout << "A lista Reversa contém os valores: " << endl;
+        for (p = ultimo; p != NULL; p = p->getant())
+        {
+            cout << p->getinfo() << " ";
+        }
+    }
+    cout << endl;
+}
