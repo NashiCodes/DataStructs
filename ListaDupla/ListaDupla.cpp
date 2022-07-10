@@ -94,8 +94,7 @@ void ListaDupla::insereFinal(int val)
     else
         primeiro = p;
 
-    delete p;
-    n = n - 1;
+    n = n + 1;
 }
 
 void ListaDupla::removeInicio()
