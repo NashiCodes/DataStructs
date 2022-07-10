@@ -78,6 +78,28 @@ void ListaD::removeInicio()
     }
     else
     {
-        cout << "Lista Vazia" << endl;
+        cout << "ERRO: Lista Vazia..." << endl;
+    }
+}
+
+void ListaD::removeFinal()
+{
+    NoDuplo *p;
+
+    if (primeiro != NULL)
+    {
+        p = ultimo;
+        ultimo = p->getant();
+        delete p;
+        n--;
+
+        if (n == 0)
+            primeiro = NULL;
+        else
+            ultimo->setprox(NULL);
+    }
+    else
+    {
+        cout << "ERRO: Lista Vazia..." << endl;
     }
 }
