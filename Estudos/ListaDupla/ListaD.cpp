@@ -27,3 +27,19 @@ ListaD::~ListaD()
         p = t;
     }
 }
+
+void ListaD::insereInicio(int val)
+{
+    NoDuplo *p = new NoDuplo(); // Novo Nó é criado
+    p->setinfo(val);            // Informação é inserida
+    p->setprox(primeiro);       // Proximo de P recebe Primeiro
+    p->setant(NULL);            // Anterior recebe nulo
+
+    if (n == 0)
+        ultimo = p;
+    else
+        primeiro->setant(p);
+
+    primeiro = p;
+    n++;
+}
