@@ -60,6 +60,35 @@ void ListaD::insereFinal(int val)
     n++;
 }
 
+void ListaD::insereK(int k, int val)
+{
+    NoDuplo *p;
+    NoDuplo *nn = new NoDuplo();
+    int i = 0;
+    nn->setinfo(val);
+
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!, inserindo no inicio..." << endl;
+        insereInicio(val);
+        return;
+    }
+
+    for (p = primeiro; p != NULL && i <= k; p = p->getprox())
+    {
+        if (i == k)
+        {
+            nn->setprox(p);
+            nn->setant(p->getant());
+            p->setant(nn);
+            nn->getant()->setprox(nn);
+            
+        }
+
+        i++;
+    }
+}
+
 void ListaD::removeInicio()
 {
     NoDuplo *p;
@@ -104,6 +133,29 @@ void ListaD::removeFinal()
     }
 }
 
+void ListaD::removeK(int k)
+{
+    NoDuplo *p;
+    int i = 0;
+    if (k > n)
+    {
+        cout << "ERRO: Indice Inválido..." << endl;
+    }
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        if (i == k)
+        {
+            p->getant()->setprox(p->getprox());
+            p->getprox()->setant(p->getant());
+
+            delete p;
+        }
+
+        i++;
+    }
+    n--;
+}
+
 bool ListaD::busca(int val)
 {
     NoDuplo *p;
@@ -128,6 +180,7 @@ void ListaD::imprime()
     }
     else
     {
+        cout << endl;
         cout << "A lista contém os valores: " << endl;
         for (p = primeiro; p != NULL; p = p->getprox())
         {
@@ -148,6 +201,7 @@ void ListaD::imprimeReverso()
     }
     else
     {
+        cout << endl;
         cout << "A lista Reversa contém os valores: " << endl;
         for (p = ultimo; p != NULL; p = p->getant())
         {
@@ -157,13 +211,24 @@ void ListaD::imprimeReverso()
     cout << endl;
 }
 
+void ListaD::limpar()
+{
+    NoDuplo *p = primeiro;
+
+    cout << "Limpando Lista...";
+    while (p != NULL)
+    {
+        NoDuplo *t = p->getprox();
+        delete p;
+
+        p = t;
+    }
+    primeiro = NULL;
+    ultimo = NULL;
+}
+
 ListaD *ListaD::concatena(ListaD *l2)
 {
-    if (n == 0)
-    {
-        cout << "ERRO: Lista Vazia!!!" << endl;
-        return;
-    }
     ultimo->setprox(l2->primeiro);
     l2->primeiro->setant(ultimo);
     ultimo = l2->ultimo;
@@ -171,7 +236,7 @@ ListaD *ListaD::concatena(ListaD *l2)
 
     n += l2->n;
 
-    return l2;
+    return this;
 }
 
 ListaD *ListaD::partir(int x)
@@ -183,7 +248,7 @@ ListaD *ListaD::partir(int x)
     if (n == 0)
     {
         cout << "ERRO: Lista Vazia!!!" << endl;
-        return;
+        return this;
     }
 
     for (p = primeiro; p != NULL; p = p->getprox())
