@@ -16,12 +16,12 @@ ListaCont::ListaCont(int tam)
 ListaCont::~ListaCont()
 {
     cout << "Destruindo objeto ListaCont" << endl;
-    delete [] vet;
+    delete[] vet;
 }
 
 int ListaCont::get(int k)
 {
-    if(k >= 0 && k < n)
+    if (k >= 0 && k < n)
         return vet[k];
     else
     {
@@ -32,7 +32,7 @@ int ListaCont::get(int k)
 
 void ListaCont::set(int k, int val)
 {
-    if(k >= 0 && k < n)
+    if (k >= 0 && k < n)
         vet[k] = val;
     else
     {
@@ -43,7 +43,7 @@ void ListaCont::set(int k, int val)
 
 void ListaCont::insereFinal(int val)
 {
-    if(n == max)
+    if (n == max)
     {
         cout << "ERRO: Vetor Cheio!" << endl;
         exit(1);
@@ -54,7 +54,7 @@ void ListaCont::insereFinal(int val)
 
 void ListaCont::removeFinal()
 {
-    if(n == 0)
+    if (n == 0)
     {
         cout << "ERRO: Lista Vazia!" << endl;
         exit(1);
@@ -64,15 +64,15 @@ void ListaCont::removeFinal()
 
 void ListaCont::insereK(int k, int val)
 {
-    if(n == max)
+    if (n == max)
     {
         cout << "ERRO: Vetor Cheio!" << endl;
         exit(1);
     }
-    if(k >= 0 && k < n)
+    if (k >= 0 && k < n)
     {
-        for(int i = n-1; i >= k; i--)
-            vet[i+1] = vet[i];
+        for (int i = n - 1; i >= k; i--)
+            vet[i + 1] = vet[i];
         vet[k] = val;
         n = n + 1;
     }
@@ -85,10 +85,10 @@ void ListaCont::insereK(int k, int val)
 
 void ListaCont::removeK(int k)
 {
-    if(k >= 0 && k < n)
+    if (k >= 0 && k < n)
     {
-        for(int i = k; i < n-1; i++)
-            vet[i] = vet[i+1];
+        for (int i = k; i < n - 1; i++)
+            vet[i] = vet[i + 1];
         n = n - 1;
     }
     else
@@ -100,8 +100,8 @@ void ListaCont::removeK(int k)
 
 void ListaCont::insereInicio(int val)
 {
-    if(n == 0)
-    {   //lista vazia. Sera o unico no da lista
+    if (n == 0)
+    { // lista vazia. Sera o unico no da lista
         vet[n] = val;
         n = n + 1;
     }
@@ -116,5 +116,10 @@ void ListaCont::removeInicio()
 
 void ListaCont::imprime()
 {
+    cout << "Os valores sao:" << endl;
+    for (int i = 0; i < n; i++)
+    {
 
+        cout << vet[i] << " ";
+    }
 }
