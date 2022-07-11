@@ -281,12 +281,15 @@ ListaEnc *ListaEnc::partir(int x)
 
     for (p = primeiro; p != NULL; p = p->getprox()) // Percorre a Lista
     {
-        if (i == x)
+        if (i == x - 1)
         {
-            listaDiv->primeiro = p;
+            listaDiv->primeiro = p->getprox();
+            listaDiv->ultimo = ultimo;
+            ultimo = p;
+            ultimo->setprox(NULL);
         }
+        i++;
     }
-    listaDiv->ultimo = p;
 
     return listaDiv;
 }
