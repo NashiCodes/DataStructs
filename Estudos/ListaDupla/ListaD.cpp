@@ -159,10 +159,17 @@ void ListaD::imprimeReverso()
 
 ListaD *ListaD::concatena(ListaD *l2)
 {
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!!!" << endl;
+        return;
+    }
     ultimo->setprox(l2->primeiro);
     l2->primeiro->setant(ultimo);
     ultimo = l2->ultimo;
     l2->primeiro = primeiro;
 
     n += l2->n;
+
+    return l2;
 }
