@@ -173,3 +173,31 @@ ListaD *ListaD::concatena(ListaD *l2)
 
     return l2;
 }
+
+ListaD *ListaD::partir(int x)
+{
+    NoDuplo *p;
+    ListaD *ListaDividida = new ListaD();
+    int i = 0;
+
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!!!" << endl;
+        return;
+    }
+
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        if (i == x)
+        {
+            ListaDividida->primeiro = p;
+            ListaDividida->ultimo = ultimo;
+            ultimo = p->getant();
+            ultimo->setprox(NULL);
+            ListaDividida->primeiro->setant(NULL);
+        }
+        i++;
+    }
+
+    return ListaDividida;
+}

@@ -19,4 +19,5 @@ public:
     void imprime();                // Imprime a Lista
     void imprimeReverso();         // Imprime a Lista de tras pra frente
     ListaD *concatena(ListaD *l2); // Concatena duas Listas
+    ListaD *partir(int x);         // Parte uma lista em 2 a partir do indice x
 };
