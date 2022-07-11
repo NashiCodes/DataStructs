@@ -5,8 +5,8 @@ private:
     NoDuplo *prox; // Pronteiro para o proximo
     NoDuplo *ant;  // Ponteiro para o anterior
 public:
-    NoDuplo();
-    ~NoDuplo();
+    NoDuplo(){};
+    ~NoDuplo(){};
 
     void setinfo(int val) { info = val; };        // Insere um valor no Nó
     void setprox(NoDuplo *Prox) { prox = Prox; }; // Seta o proximo Nó
