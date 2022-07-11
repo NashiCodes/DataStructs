@@ -28,6 +28,42 @@ ListaD::~ListaD()
     }
 }
 
+int ListaD::get(int k)
+{
+    NoDuplo *p = primeiro; // cria um No Aux
+
+    for (int i = 0; i < k && p != NULL; i++) // Percorrendo a lista
+    {                                        // até o indice k
+        p = p->getprox();                    //
+    }                                        //
+
+    if (p == NULL)                                 // Verifica se o indice K é valido
+    {                                              //
+        cout << "ERRO: Indice invalido!!" << endl; //
+        exit(1);                                   // Acaba o programa se o indice for invalido
+    }                                              //
+    else
+        return p->getinfo(); // Retorna o Valor dentro do indice K
+}
+
+void ListaD::set(int k, int val)
+{
+    NoDuplo *p = primeiro; // No Aux
+
+    for (int i = 0; i < k && p != NULL; i++) // Percorre a lista
+    {                                        // até o indice K
+        p = p->getprox();                    //
+    }                                        //
+
+    if (p == NULL)                                 // Verifica se o indice K é valido
+    {                                              //
+        cout << "ERRO: Indice invalido!!" << endl; //
+        exit(2);                                   // Acaba o programa se o indice for invalido
+    }                                              //
+    else
+        p->setinfo(val);
+}
+
 void ListaD::insereInicio(int val)
 {
     NoDuplo *p = new NoDuplo(); // Novo Nó é criado
@@ -82,7 +118,6 @@ void ListaD::insereK(int k, int val)
             nn->setant(p->getant());
             p->setant(nn);
             nn->getant()->setprox(nn);
-            
         }
 
         i++;
@@ -140,8 +175,9 @@ void ListaD::removeK(int k)
     if (k > n)
     {
         cout << "ERRO: Indice Inválido..." << endl;
+        return;
     }
-    for (p = primeiro; p != NULL; p = p->getprox())
+    for (p = primeiro; p != NULL && i <= k; p = p->getprox())
     {
         if (i == k)
         {
@@ -213,30 +249,41 @@ void ListaD::imprimeReverso()
 
 void ListaD::limpar()
 {
-    NoDuplo *p = primeiro;
-
-    cout << "Limpando Lista...";
-    while (p != NULL)
+    if (primeiro == NULL)
+        cout << "ERRO: Lista Vazia!!" << endl;
+    else
     {
-        NoDuplo *t = p->getprox();
-        delete p;
+        cout << "Limpando Lista...";
 
-        p = t;
+        NoDuplo *p = primeiro;
+        while (p != NULL)
+        {
+            NoDuplo *prox = p->getprox();
+            delete p;
+
+            p = prox;
+        }
+        n = 0;
+        primeiro = NULL;
+        ultimo = NULL;
     }
-    primeiro = NULL;
-    ultimo = NULL;
 }
 
-ListaD *ListaD::concatena(ListaD *l2)
+ListaD ListaD::concatena(ListaD *l2)
 {
-    ultimo->setprox(l2->primeiro);
-    l2->primeiro->setant(ultimo);
-    ultimo = l2->ultimo;
-    l2->primeiro = primeiro;
+    ListaD lnova;
+    NoDuplo *p;
+    int numNos = l2->n;
 
-    n += l2->n;
-
-    return this;
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        lnova.insereFinal(p->getinfo());
+    }
+    for (int i = 0; i < numNos; i++)
+    {
+        lnova.insereFinal(l2->get(i));
+    }
+    return lnova;
 }
 
 ListaD *ListaD::partir(int x)

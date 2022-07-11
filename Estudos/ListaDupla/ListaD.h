@@ -18,10 +18,12 @@ public:
     void removeFinal();              // Remove o final da lista
     void removeK(int k);             // Remove o nó "k" da lista
     bool busca(int val);             // Procura um valor na Lista
+    int get(int k);                  // Retorna o valor inserido no indice K
+    void set(int k, int val);        // Insere um valor no indice K
     void imprime();                  // Imprime a Lista
     void imprimeReverso();           // Imprime a Lista de tras pra frente
     void limpar();                   // Limpa a Lista
-    ListaD *concatena(ListaD *l2);   // Concatena duas Listas
+    ListaD concatena(ListaD *l2);    // Concatena duas Listas
     ListaD *partir(int x);           // Parte uma lista em 2 a partir do indice x
     void removeOcorrencias(int val); // Remove todas as ocorrencias de um valor
 };
