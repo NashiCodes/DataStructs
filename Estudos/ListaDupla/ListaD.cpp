@@ -201,3 +201,27 @@ ListaD *ListaD::partir(int x)
 
     return ListaDividida;
 }
+
+void ListaD::removeOcorrencias(int val)
+{
+    NoDuplo *p;
+
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!!!" << endl;
+        return;
+    }
+
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        if (p->getinfo() == val)
+        {
+            NoDuplo *t = p->getant();
+            t->setprox(p->getprox());
+            p->getprox()->setant(t);
+
+            delete p;
+            return;
+        }
+    }
+}
