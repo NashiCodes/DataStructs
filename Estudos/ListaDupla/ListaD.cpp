@@ -156,3 +156,13 @@ void ListaD::imprimeReverso()
     }
     cout << endl;
 }
+
+ListaD *ListaD::concatena(ListaD *l2)
+{
+    ultimo->setprox(l2->primeiro);
+    l2->primeiro->setant(ultimo);
+    ultimo = l2->ultimo;
+    l2->primeiro = primeiro;
+
+    n += l2->n;
+}
