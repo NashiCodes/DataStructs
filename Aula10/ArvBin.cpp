@@ -17,7 +17,7 @@ int ArvBin::getRaiz()
         return raiz->getInfo();
     else
     {
-        cout << "Árvore vazia!" << endl;
+        cout << "ï¿½rvore vazia!" << endl;
         exit(1);
     }
 }
@@ -38,7 +38,7 @@ void ArvBin::anulaRaiz()
 
 void ArvBin::montaArvore()
 {
-    if(!vazia())
+    if (!vazia())
         cout << "Arvore jah montada. So eh possivel a insercao de nos." << endl;
     else
     {
@@ -47,12 +47,12 @@ void ArvBin::montaArvore()
     }
 }
 
-NoArv* ArvBin::auxMontaArvore()
+NoArv *ArvBin::auxMontaArvore()
 {
     string linha;
     cout << "Valor: ";
     cin >> linha;
-    if(linha != "NULL" && linha != "null")
+    if (linha != "NULL" && linha != "null")
     {
         istringstream ent(linha);
         int valor;
@@ -76,9 +76,9 @@ void ArvBin::insere(int x)
     raiz = auxInsere(raiz, x);
 }
 
-NoArv* ArvBin::auxInsere(NoArv *p, int x)
+NoArv *ArvBin::auxInsere(NoArv *p, int x)
 {
-    if(p == NULL)
+    if (p == NULL)
     {
         p = new NoArv();
         p->setInfo(x);
@@ -90,7 +90,7 @@ NoArv* ArvBin::auxInsere(NoArv *p, int x)
         char direcao;
         cout << x << " a esquerda (e) ou direita (d) de " << p->getInfo() << ": ";
         cin >> direcao;
-        if(direcao == 'e' || direcao == 'E')
+        if (direcao == 'e' || direcao == 'E')
             p->setEsq(auxInsere(p->getEsq(), x));
         else
             p->setDir(auxInsere(p->getDir(), x));
@@ -125,7 +125,7 @@ ArvBin::~ArvBin()
     raiz = libera(raiz);
 }
 
-NoArv* ArvBin::libera(NoArv *p)
+NoArv *ArvBin::libera(NoArv *p)
 {
     if (p != NULL)
     {
@@ -151,4 +151,24 @@ void ArvBin::auxPreOrdem(NoArv *p)
         auxPreOrdem(p->getEsq());
         auxPreOrdem(p->getDir());
     }
+}
+
+int ArvBin::contaNos()
+{
+    return auxcontaNos(raiz);
+}
+
+int ArvBin::auxcontaNos(NoArv *p)
+{
+    int n = 0;
+    if (p != NULL)
+    {
+        n++;
+        n += auxcontaNos(p->getEsq());
+        n += auxcontaNos(p->getDir());
+
+        return n;
+    }
+
+    return n;
 }
