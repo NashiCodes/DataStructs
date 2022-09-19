@@ -2,7 +2,20 @@
 
 using namespace std;
 
+void Atv01();
+void Atv02();
+void troca(int *a, int *b);
+
 int main()
+{
+
+    Atv01();
+    Atv02();
+
+    return 0;
+}
+
+void Atv01()
 {
     int pt;
     int *p_pt;
@@ -22,7 +35,35 @@ int main()
 
     p_pt += 10;
 
-    cout << p_pt << endl;
+    cout << p_pt << endl
+         << endl;
+}
+void Atv02()
+{
+    int x = 20;
+    int y = 30;
 
-    return 0;
+    int *pt_x = &x;
+    int *pt_y = &y;
+
+    cout << "Antes da Troca:" << endl
+         << "X = " << x << endl
+         << "Y = " << y << endl;
+
+    troca(pt_x, pt_y);
+
+    cout << "Depois da Troca:" << endl
+         << "X = " << x << endl
+         << "Y = " << y << endl
+         << endl;
+    
+}
+
+void troca(int *a, int *b)
+{
+    int aux;
+
+    aux = *b;
+    *b = *a;
+    *a = aux;
 }
