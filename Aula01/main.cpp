@@ -4,13 +4,16 @@ using namespace std;
 
 void Atv01();
 void Atv02();
+void Atv03();
 void troca(int *a, int *b);
+void divisao(int num, int Div, int *q, int *r);
 
 int main()
 {
 
     Atv01();
     Atv02();
+    Atv03();
 
     return 0;
 }
@@ -38,6 +41,7 @@ void Atv01()
     cout << p_pt << endl
          << endl;
 }
+
 void Atv02()
 {
     int x = 20;
@@ -56,7 +60,26 @@ void Atv02()
          << "X = " << x << endl
          << "Y = " << y << endl
          << endl;
-    
+}
+
+void Atv03()
+{
+    int x = 65;
+    int y = 30;
+    int q;
+    int r;
+    int *pt_q = &q;
+    int *pt_r = &r;
+
+    cout << "valor de A: " << x << endl
+         << "valor de B: " << y << endl
+         << endl;
+
+    divisao(x, y, pt_q, pt_r);
+
+    cout << "valor do Quociente: " << q << endl
+         << "valor de Resto: " << r << endl
+         << endl;
 }
 
 void troca(int *a, int *b)
@@ -66,4 +89,10 @@ void troca(int *a, int *b)
     aux = *b;
     *b = *a;
     *a = aux;
+}
+
+void divisao(int num, int div, int *q, int *r)
+{
+    *q = num / div;
+    *r = num % div;
 }
