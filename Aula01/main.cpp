@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib> ///rand()
+#include <ctime>   ///time()
 
 using namespace std;
 
@@ -9,6 +11,7 @@ void Atv04();
 void troca(int *a, int *b);
 void divisao(int num, int Div, int *q, int *r);
 bool func(int tam, int vet[], int *par, int *impar, int *negativos);
+int numAleatorio(int a, int b);
 
 int main()
 {
@@ -29,7 +32,7 @@ void Atv01()
     cout << &pt << endl;
 
     int x;
-    cin >> x;
+    x = numAleatorio(0, 100);
     p_pt = &x;
 
     cout << *p_pt << endl;
@@ -88,6 +91,40 @@ void Atv03()
 
 void Atv04()
 {
+    int tam = 20;
+    int *vet = new int[tam];
+    int par = 0;
+    int impar = 0;
+    int negativos = 0;
+    int *pt_par = &par;
+    int *pt_impar = &impar;
+    int *pt_negativos = &negativos;
+
+    srand(time(NULL));
+
+    for (int i = 0; i < tam; i++)
+    {
+        vet[i] = numAleatorio(-1000, 1000);
+    }
+
+    for (int i = 0; i < tam; i++)
+        cout << vet[i] << " ";
+
+    cout << endl;
+    cout << endl;
+
+    if (func(tam, vet, pt_par, pt_impar, pt_negativos))
+    {
+        cout << "true" << endl;
+    }
+    else
+        cout << "false" << endl;
+
+    cout << "Quantidade de pares: " << *pt_par << endl;
+    cout << "Quantidade de impares: " << *pt_impar << endl;
+    cout << "Quantidade de negativos: " << *pt_negativos << endl;
+
+    delete vet;
 }
 
 void troca(int *a, int *b)
@@ -107,4 +144,28 @@ void divisao(int num, int div, int *q, int *r)
 
 bool func(int tam, int vet[], int *par, int *impar, int *negativos)
 {
+    for (int i = 0; i < tam; i++)
+    {
+        if (vet[i] < 0)
+        {
+            cout << vet[i] << " ";
+            *negativos += 1;
+        }
+        if ((vet[i] % 2) == 0)
+            *par += 1;
+        else
+            *impar += 1;
+    }
+    cout << endl;
+    cout << endl;
+
+    if (*negativos > 0)
+        return true;
+    else
+        return false;
+}
+
+int numAleatorio(int a, int b)
+{
+    return a + rand() % (b - a + 1); /// retorna um numero inteiro aleatório entre a e b
 }
