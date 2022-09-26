@@ -8,6 +8,7 @@ void Atv01();
 void Atv02();
 void Atv03();
 void Atv04();
+void Atv05();
 void troca(int *a, int *b);
 void divisao(int num, int Div, int *q, int *r);
 bool func(int tam, int vet[], int *par, int *impar, int *negativos);
@@ -20,6 +21,7 @@ int main()
     Atv02();
     Atv03();
     Atv04();
+    Atv05();
 
     return 0;
 }
@@ -125,6 +127,11 @@ void Atv04()
     cout << "Quantidade de negativos: " << *pt_negativos << endl;
 
     delete vet;
+}
+
+void Atv05()
+{
+
 }
 
 void troca(int *a, int *b)
