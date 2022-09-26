@@ -8,13 +8,16 @@ using namespace std;
 int numAleatorio(int a, int b);
 void Atv01();
 void Atv02();
+void Atv03();
 int fatorial(int n);
 void imprimeIntervalo(int a, int b, int inc);
+void imprimeDecrescente(int n);
 
 int main()
 {
     Atv01();
     Atv02();
+    Atv03();
 }
 
 void Atv01()
@@ -30,7 +33,6 @@ void Atv01()
 
     cout << "Fatorial de : " << n << " eh: " << fat << endl
          << endl;
-    
 }
 
 void Atv02()
@@ -38,6 +40,8 @@ void Atv02()
     int a;
     int b;
     int inc;
+
+    srand(time(NULL));
 
     a = numAleatorio(0, 499);
     b = numAleatorio(500, 1000);
@@ -48,7 +52,30 @@ void Atv02()
 
     imprimeIntervalo(a, b, inc);
 
-    cout << endl;
+    cout << endl
+         << endl;
+}
+
+void Atv03()
+{
+    int n;
+
+    srand(time(NULL));
+
+    n = numAleatorio(1, 100);
+
+    cout << "Numero que sera decrescido: " << n << endl;
+
+    imprimeDecrescente(n);
+}
+
+void imprimeDecrescente(int n)
+{
+    if (n >= 0)
+    {
+        cout << n << " ";
+        imprimeDecrescente(n - 1);
+    }
 }
 
 void imprimeIntervalo(int a, int b, int inc)
