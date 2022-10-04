@@ -1,23 +1,27 @@
 #include <iostream>
-#include <iostream>
 #include <cstdlib> ///rand()
 #include <ctime>   ///time()
 
 using namespace std;
 
 int numAleatorio(int a, int b);
+float numAleatoriof(float a, float b);
 void Atv01();
 void Atv02();
 void Atv03();
+void Atv04();
 int fatorial(int n);
 void imprimeIntervalo(int a, int b, int inc);
 void imprimeDecrescente(int n);
+float soma(int n, float vet[]);
 
 int main()
 {
     Atv01();
     Atv02();
     Atv03();
+    Atv04();
+    srand(time(NULL));
 }
 
 void Atv01()
@@ -69,6 +73,29 @@ void Atv03()
     imprimeDecrescente(n);
 }
 
+void Atv04()
+{
+    srand(time(NULL));
+
+    int n = numAleatorio(10, 100);
+    float *vet = new float[n];
+    int s;
+    float l;
+    cout <<endl<< numAleatoriof(0, 10)<<endl<<l;
+
+    for (int i = 0; i < n; i++)
+        vet[i] = numAleatoriof(1, 100);
+
+    s = soma(n, vet);
+
+    delete vet;
+}
+
+float soma(int n, float vet[])
+{
+    return 0;
+}
+
 void imprimeDecrescente(int n)
 {
     if (n >= 0)
@@ -98,4 +125,9 @@ int fatorial(int n)
 int numAleatorio(int a, int b)
 {
     return a + rand() % (b - a + 1); /// retorna um numero inteiro aleatório entre a e b
+}
+
+float numAleatoriof(float a, float b)
+{
+    return a + rand() / (b - a + 1); /// retorna um numero inteiro aleatório entre a e b
 }
