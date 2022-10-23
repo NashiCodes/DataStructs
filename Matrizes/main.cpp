@@ -1,5 +1,6 @@
 #include <iostream>
 #include "matriz.h"
+#include "MatrizLin.h"
 
 using namespace std;
 

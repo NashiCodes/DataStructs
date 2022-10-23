@@ -1,5 +1,3 @@
-#ifndef MATRIZ_H
-#define MATRIZ_H
 #include <iostream>
 using namespace std;
 
@@ -17,4 +15,3 @@ public:
         void set(int i, int j, float val);
         double get(int i, int j);
 };
-#endif
