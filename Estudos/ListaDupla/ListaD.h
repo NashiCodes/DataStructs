@@ -23,7 +23,8 @@ public:
     void imprime();                  // Imprime a Lista
     void imprimeReverso();           // Imprime a Lista de tras pra frente
     void limpar();                   // Limpa a Lista
-    ListaD concatena(ListaD *l2);    // Concatena duas Listas
-    ListaD *partir(int x);           // Parte uma lista em 2 a partir do indice x
+    ListaD *concatena(ListaD *l2);    // Concatena duas Listas
+    ListaD *partirInd(int x);        // Parte uma lista em 2 a partir do indice x
+    ListaD *partirInf(int x);        // Parte uma lista em 2 a partir do valor x
     void removeOcorrencias(int val); // Remove todas as ocorrencias de um valor
 };

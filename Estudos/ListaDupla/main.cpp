@@ -68,12 +68,12 @@ int main()
 
     ChamaLista(&l2);
 
-    ListaD l3;
+    ListaD *l3;
     l3 = l.concatena(&l2);
 
     l.imprime();
     l2.imprime();
-    l3.imprime();
+    l3->imprime();
 
     l.limpar();
     l.imprime();

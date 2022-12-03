@@ -269,24 +269,24 @@ void ListaD::limpar()
     }
 }
 
-ListaD ListaD::concatena(ListaD *l2)
+ListaD *ListaD::concatena(ListaD *l2)
 {
-    ListaD lnova;
+    ListaD *lnova = new ListaD();
     NoDuplo *p;
     int numNos = l2->n;
 
     for (p = primeiro; p != NULL; p = p->getprox())
     {
-        lnova.insereFinal(p->getinfo());
+        lnova->insereFinal(p->getinfo());
     }
     for (int i = 0; i < numNos; i++)
     {
-        lnova.insereFinal(l2->get(i));
+        lnova->insereFinal(l2->get(i));
     }
     return lnova;
 }
 
-ListaD *ListaD::partir(int x)
+ListaD *ListaD::partirInd(int x)
 {
     NoDuplo *p;
     ListaD *ListaDividida = new ListaD();
@@ -301,6 +301,34 @@ ListaD *ListaD::partir(int x)
     for (p = primeiro; p != NULL; p = p->getprox())
     {
         if (i == x)
+        {
+            ListaDividida->primeiro = p;
+            ListaDividida->ultimo = ultimo;
+            ultimo = p->getant();
+            ultimo->setprox(NULL);
+            ListaDividida->primeiro->setant(NULL);
+        }
+        i++;
+    }
+
+    return ListaDividida;
+}
+
+ListaD *ListaD::partirInf(int x)
+{
+    NoDuplo *p;
+    ListaD *ListaDividida = new ListaD();
+    int i = 0;
+
+    if (n == 0)
+    {
+        cout << "ERRO: Lista Vazia!!!" << endl;
+        return this;
+    }
+
+    for (p = primeiro; p != NULL; p = p->getprox())
+    {
+        if (i == p->getinfo())
         {
             ListaDividida->primeiro = p;
             ListaDividida->ultimo = ultimo;
