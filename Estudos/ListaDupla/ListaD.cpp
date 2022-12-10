@@ -85,15 +85,18 @@ void ListaD::insereFinal(int val)
     NoDuplo *p = new NoDuplo(); // Novo Nó é criado
     p->setinfo(val);            // Informação é inserida
     p->setprox(NULL);           // Proximo dele será nulo
-    p->setant(ultimo);          // Anterior dele será o ultimo atual da lista
+    p->setant(NULL);          // Anterior dele será o ultimo atual da lista
 
     if (n == 0)             // Se a lista estiver vazia
         primeiro = p;       // O primeiro será p
-    else                    // Caso contrario
+    else
+        {
         ultimo->setprox(p); // O proximo do ultimo atual será p
+        p->setant(ultimo);
+        }
 
-    ultimo = p; // O novo Nó se torna o ultimo
-    n++;
+ultimo = p; // O novo Nó se torna o ultimo
+n++;
 }
 
 void ListaD::insereK(int k, int val)
@@ -118,6 +121,8 @@ void ListaD::insereK(int k, int val)
             nn->setant(p->getant());
             p->setant(nn);
             nn->getant()->setprox(nn);
+
+            n++;
         }
 
         i++;
